@@ -14,25 +14,52 @@ Output : [5, 6, -2, 3]
 
 #include <iostream>
 
+void MaximumSubarrySum(int* arry, int length);
+
 int main()
 {
-    std::cout << "Hello World!\n";
+
+    //int test[9] = { -2, 1, -3, 4, -1, 2, 1, -5, -4 };
+    int test[9] = { 8, -7, -3, 5, 6, -2, 3, -4, 2 };
+    MaximumSubarrySum(test, 9);
+    
 }
 
-// sort
 
 
-int* comapreResult(int* arry, int length)
+void MaximumSubarrySum(int* arry, int length)
 {
-    int sum = 0;
-    int compareSum = 0;
+    
+    int currentMaxSum = arry[0] + arry[1];
+    int start = 0;
+    int end = 0;
+    int arryLength = 0;
+    int* result = {0};
+
     for (int i = 0; i < length; i++)
     {
-        sum += arry[i];
-        if (sum > )
+        int totalSum = arry[i];
+        for (int j = i+1; j < length; j++)
         {
-
+            totalSum += arry[j];
+            if (totalSum > currentMaxSum)
+            {
+    
+                currentMaxSum = totalSum;
+                start = i;
+                end = j;
+                arryLength = end - start + 1;
+              
+            }
         }
-        compareSum += 
     }
+
+
+    for (int i = start; i < end+1; i++)
+    {
+        printf("%d ", arry[i]);
+    }
+
+    
+    return result;
 }
